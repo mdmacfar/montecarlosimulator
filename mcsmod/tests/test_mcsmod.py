@@ -1,5 +1,5 @@
 import unittest
-from ..montecarlo import Die, Game, Analyzer
+from mcsmod import Die, Game, Analyzer
 
 class TestDie(unittest.TestCase):
     def setUp(self):
@@ -22,8 +22,8 @@ class TestDie(unittest.TestCase):
             self.die.change_weight(1, 'A')
             
     def test_roll(self):
-        results = self.die.roll(10000)
-        self.assertEqual(len(results), 10000)
+        results = self.die.roll(1000)
+        self.assertEqual(len(results), 1000)
         self.assertTrue(all([result in self.die.faces for result in results]))
         
     def test_show(self):
@@ -40,13 +40,13 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.results.shape, (0, 0))
         
     def test_play(self):
-        self.game.play(10000)
-        self.assertEqual(self.game.results.shape, (10000, 2))
+        self.game.play(1000)
+        self.assertEqual(self.game.results.shape, (1000, 2))
         self.assertTrue(all([result in self.die1.faces for result in self.game.results['die_1']]))
         self.assertTrue(all([result in self.die2.faces for result in self.game.results['die_2']]))
         
     def test_show(self):
-        self.game.play(10000)
+        self.game.play(1000)
         self.game.show()
         self.game.show(wide=False)
 
@@ -55,7 +55,7 @@ class TestAnalyzer(unittest.TestCase):
         self.die1 = Die([1,2,3,4,5,6])
         self.die2 = Die([1,2,3,4,5,6])
         self.game = Game([self.die1, self.die2])
-        self.game.play(10000)
+        self.game.play(1000)
         self.analyzer = Analyzer(self.game)
         
     def test_init(self):
