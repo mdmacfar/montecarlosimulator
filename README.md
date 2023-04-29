@@ -24,3 +24,16 @@ Here is what you'll find in the repo:
       - mcstest.py
 
 
+## Instructions 
+
+Remember to run
+
+pip install -e . 
+
+from the directory that the setup.py file is in. 
+
+Then to run the unit test, run 
+
+python -m unittest discover mcsmod/tests > test_output.txt
+
+This will overwrite the test_output.txt file.

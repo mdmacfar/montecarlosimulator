@@ -8,4 +8,7 @@ setup(
         'pandas==1.2.4',
         'numpy==1.19.5'
     ],
+    author="Michael Macfarlan",
+    description="Monte Carlo Simulation",
+    url="https://github.com/mdmacfar/montecarlosimulatormodule",
 )
