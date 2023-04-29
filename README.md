@@ -15,10 +15,10 @@ A list of all the files in the repo.
 
 montecarlosimulatormodule/
 - mcsmod/
-- __init__.py
-- montecarlo.py
-- README.md
-- setup.py
-- tests/
-- - - __init__.py
-- - - mcstest.py
+  - __init__.py
+  - montecarlo.py
+  - README.md
+  - setup.py
+  - tests/
+    - __init__.py
+    - mcstest.py
