@@ -1,6 +1,7 @@
 import unittest
-import os
-os.getcwd()
+import pandas as pd
+import random
+from typing import List
 from mcs_pkg import Die, Game, Analyzer
 
 class TestDie(unittest.TestCase):
