@@ -11,14 +11,14 @@ All paramters (with data types and defaults) should be described.
 All return values should be described. Do not describe private methods and attributes. 
 
 ## Manifest 
-A list of all the files in the repo.
+Here is what you'll find in the repo:
 
-montecarlosimulatormodule/
-- mcsmod/
-  - __init__.py
-  - montecarlo.py
-  - README.md
-  - setup.py
-  - tests/
+- montecarlosimulatormodule/
+  - mcsmod/
     - __init__.py
-    - mcstest.py
+    - montecarlo.py
+    - README.md
+    - setup.py
+    - tests/
+      - __init__.py
+      - mcstest.py
