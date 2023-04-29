@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="mcsmod",
+    name="mcs",
     version="1.0.0",
     packages=find_packages(),
     install_requires=[
@@ -9,6 +9,6 @@ setup(
         'numpy==1.19.5'
     ],
     author="Michael Macfarlan",
-    description="Monte Carlo Simulation",
+    description="Monte Carlo Simulator",
     url="https://github.com/mdmacfar/montecarlosimulatormodule",
 )
