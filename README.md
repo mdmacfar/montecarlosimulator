@@ -14,11 +14,13 @@ All return values should be described. Do not describe private methods and attri
 Here is what you'll find in the repo:
 
 - montecarlosimulatormodule/
+  - README.md
+  - setup.py
   - mcsmod/
     - __init__.py
     - montecarlo.py
-    - README.md
-    - setup.py
     - tests/
       - __init__.py
       - mcstest.py
+
+
