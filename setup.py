@@ -1,14 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="mcs",
+    name="Monte Carlo Simulator",
     version="1.0.0",
     packages=find_packages(),
-    install_requires=[
-        'pandas==1.2.4',
-        'numpy==1.19.5'
-    ],
+    install_requires=['pandas'],
     author="Michael Macfarlan",
-    description="Monte Carlo Simulator",
+    description="Monte Carlo Simulator package containing Die, Game, and Analyzer classes",
     url="https://github.com/mdmacfar/montecarlosimulatormodule",
+    license="MIT"
 )

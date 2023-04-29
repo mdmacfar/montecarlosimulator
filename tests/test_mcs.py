@@ -1,5 +1,7 @@
 import unittest
-from mcs import Die, Game, Analyzer
+import os
+os.getcwd()
+from mcs_pkg import Die, Game, Analyzer
 
 class TestDie(unittest.TestCase):
     def setUp(self):
