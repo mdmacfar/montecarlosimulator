@@ -1,4 +1,4 @@
-# Monte Carlo Simulator Module
+# Monte Carlo Simulator
 Author: Michael Macfarlan
 
 ## Synopsis 
