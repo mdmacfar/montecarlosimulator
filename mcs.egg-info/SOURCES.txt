@@ -1,0 +1,11 @@
+README.md
+setup.py
+mcs/__init__.py
+mcs/montecarlo.py
+mcs.egg-info/PKG-INFO
+mcs.egg-info/SOURCES.txt
+mcs.egg-info/dependency_links.txt
+mcs.egg-info/requires.txt
+mcs.egg-info/top_level.txt
+mcs/tests/__init__.py
+mcs/tests/test_mcs.py
