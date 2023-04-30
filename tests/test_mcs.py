@@ -9,7 +9,7 @@ class TestDie(unittest.TestCase):
         self.die = Die([1,2,3,4,5,6])
         
     def test_init(self):
-        # Test if the die is initialized correctly
+        # Test if the die initialize correctly
         self.assertEqual(self.die.faces, [1,2,3,4,5,6])
         self.assertEqual(self.die.weights, [1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
         
@@ -27,13 +27,13 @@ class TestDie(unittest.TestCase):
             self.die.change_weight(1, 'A')
             
     def test_roll(self):
-        # Test if the die rolls correctly
+        # Test if the die roll correctly
         results = self.die.roll(1000)
         self.assertEqual(len(results), 1000)
         self.assertTrue(all([result in self.die.faces for result in results]))
         
     def test_show(self):
-        # Test if the die shows correctly
+        # Test if the die show correctly
         self.die.show()
 
 class TestGame(unittest.TestCase):
@@ -77,28 +77,28 @@ class TestAnalyzer(unittest.TestCase):
         self.assertEqual(self.analyzer.combo_results, None)
         
     def test_infer_faces_dtype(self):
-        # Test when all dice have integer faces
+        # Test when all die have integer faces 
         self.game = Game([Die([1, 2, 3]), Die([4, 5, 6])])
         self.analyzer = Analyzer(self.game)
         self.assertEqual(self.analyzer._infer_faces_dtype(), 'int')
 
-        # Test when all dice have string faces
+        # Test when all die have string faces
         self.game = Game([Die(['A', 'B', 'C']), Die(['D', 'E', 'F'])])
         self.analyzer = Analyzer(self.game)
         self.assertEqual(self.analyzer._infer_faces_dtype(), 'str')
 
-        # Test when all dice have float faces
+        # Test when all die have float faces
         self.game = Game([Die([1.1, 2.2, 3.3]), Die([4.4, 5.5, 6.6])])
         self.analyzer = Analyzer(self.game)
         self.assertEqual(self.analyzer._infer_faces_dtype(), 'float')
 
-        # Test when dice have mixed face types
+        # Test when die have mixed face types
         self.game = Game([Die([1, 2, 3]), Die(['A', 'B', 'C'])])
         with self.assertRaises(TypeError):
             self.analyzer = Analyzer(self.game)
             self.analyzer._infer_faces_dtype()
 
-        # Test when dice have unsupported face types
+        # Test when die have unsupported face types
         class TestObject:
             pass   
         
