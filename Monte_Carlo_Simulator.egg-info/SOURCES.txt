@@ -1,9 +1,0 @@
-README.md
-setup.py
-Monte_Carlo_Simulator.egg-info/PKG-INFO
-Monte_Carlo_Simulator.egg-info/SOURCES.txt
-Monte_Carlo_Simulator.egg-info/dependency_links.txt
-Monte_Carlo_Simulator.egg-info/requires.txt
-Monte_Carlo_Simulator.egg-info/top_level.txt
-mcs_pkg/__init__.py
-mcs_pkg/montecarlo.py
