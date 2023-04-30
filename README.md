@@ -66,10 +66,12 @@ Instructions to install within a Docker environment:
 1. Start a dev environment from Docker desktop. When prompted, use https://github.com/mdmacfar/montecarlosimulator.git to install the environment.
 2. Open VSCode from Docker when prompted. Open a terminal (Terminal > New Terminal)
 3. In the terminal, run:
+  
   ```sudo apt-get update && sudo apt-get install -y python3-pip```
+  
 4. Then run:
-5. 
-  ```pip3 install pandas```
+
+```pip3 install pandas```
   
   ```pip3 install matplotlib #(this is for the jupyter notebook graphs)```
   
@@ -80,5 +82,7 @@ Instructions to install within a Docker environment:
   ```python3 -m mcs_pkg ```
   
 5. To run the Unit test, run:
+
   ```python3 -m unittest discover tests > test_mcs_results.txt```
+  
 This will overwrite the test_mcs_results.txt file with a new output.
