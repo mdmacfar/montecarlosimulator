@@ -2,43 +2,74 @@
 Author: Michael Macfarlan
 
 ## Synopsis 
-Show demo code of how the classes are used, i.e.installing importing Creating dice Playing games Analyzing games. 
+
+🎲🎲🎲 _They see me rollin'_ 🎲🎲🎲
+
+This Monte Carlo Simulation package is a Python library designed to simulate and analyze games of randomly rolled dice. With this tool, you can create different kinds of dice with different weights, play games with dice, and analyze the outcomes of games. The package is easy to use with clear instructions (see the bottom of this README file) and useful demos (see the notebook titled "montecarlo_demo.ipynb"). 
+
+### Example:
+```
+from mcs_pkg.montecarlo import Die, Game, Analyzer
+
+# Setup: A fair coin (with faces H and T) and one unfair coin, 
+# in which one of the faces has a weight of 5 and the others 1.
+
+fair_coin = Die(['H', 'T'])
+unfair_coin = Die(['H', 'T'])
+unfair_coin.change_weight('H', 5)
+
+# Here's a game of 1000 flips with two fair coins
+
+fairgame = Game([fair_coin, fair_coin])
+fairgame.play(1000)
+
+# Now, we analyze the frequency of jackpots 
+# during the game played with fair coins
+
+fairgame_analyzer = Analyzer(fairgame)
+fairgame_jackpot = fairgame_analyzer.count_jackpots()
+fairgame_flips = fairgame.results.shape[0]
+fairgame_jackpot
+fairgame_flips
+fairgame_freq = fairgame_jackpot / fairgame_flips
+print(fairgame_freq)
+
+```
+See the __montecarlo_demo.ipynb__ file for more examples and scenarios.
 
 ## API Description 
 
 Classes: 
 
-### class Die:
+### Die Class:
 This class represents a die. 
-Attributes:
-faces: An array of die faces
-weights: An array of weights for each of the faces
+<br>Attributes:
+<br>faces: An array of die faces
+<br>weights: An array of weights for each of the faces
 
 Methods:
-__init__(self, faces): Initializes a new Die object.
-change_weight(self, face, weight): Changes the weight of a side of the die.
-roll(self, times=1): Rolls the die.
-show(self): Shows the die's current set of faces and weights.
+<br>`__init__(self, faces)`: Initializes a new Die object.<br>`change_weight(self, face, weight)`: Changes the weight of a side of the die.
+<br>`roll(self, times=1)`: Rolls the die.
+<br>`show(self)`: Shows the die's current set of faces and weights.
 
-### class Game:
+### Game Class:
 This class represents a game of rolling dice.
-Attributes:
-dice: A list of die objects
-results: A datafame of the results of the rolls
+<br>Attributes:
+<br>dice: A list of die objects
+<br>results: A datafame of the results of the rolls
 
 Methods:
-__init__(self, dice: List[Die]): Initializes a new Game object.
-play(self, times=int): Plays the game for a certain number of times.
-show(self, wide: bool=True): Shows the results of the last play.
+<br>`__init__(self, dice: List[Die])`: Initializes a new Game object.
+<br>`play(self, times=int)`: Plays the game for a certain number of times.
+<br>`show(self, wide: bool=True)`: Shows the results of the last play.
 
-### class Analyzer:
-Takes the results of a game and computes statistical properties. 
-The property results are available as attributes of the Analyzer object.
+### Analyzer Class:
+Takes the results of a game and computes statistical properties. The results are available to use as attributes of the Analyzer object.
 
 Attributes:
-count_faces: How many times a given face appears in the results.
-count_jackpots: How many times all the faces are the same.
-count_combos: How many times a given combination of faces appears in the results.
+<br>`count_faces`: Count how many times a given face appears in the results.
+<br>`count_jackpots`: Count how many times all the faces are the same.
+<br>`count_combos`: Count how many times a given combination of faces appears in the results.
 
 
 ## Manifest 
@@ -57,9 +88,28 @@ Here is what you'll find in the repo:
     - __init__.py (Package initializer)
     - montecarlo.py (The juicy bits of the package)
 
+## General Installation Instructions
+
+Instructions to install:
+
+1. Make sure you have Python, Pip, Pandas, and Matplotlib installed in your environment.
+  
+2. Copy the repo to your environment, then run these bash commands from the same directory as your repo:
+  
+  ```pip install -e .```, then:
+  
+  ```python3 -m mcs_pkg ```
+
+3. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
+  
+4. To run the Unit test, run:
+
+  ```python3 -m unittest discover tests 2> montecarlo_tests_results.txt```
+  
+This will overwrite the montecarlo_tests_results.txt file with a new output.
 
 
-## Instructions 
+## Installation Instructions For Docker Dev Environment
 
 Instructions to install within a Docker environment:
 
@@ -71,16 +121,20 @@ Instructions to install within a Docker environment:
   
 4. Then run:
 
-```pip3 install pandas```
+```pip3 install pandas``` , then:
   
-  ```pip3 install matplotlib #(this is for the jupyter notebook graphs)```
+  ```pip3 install matplotlib #(this is for the jupyter notebook graphs)```, then:
   
-  ```pip install -e .```
+  ```pip install -e .```, then:
   
   ```python3 -m mcs_pkg ```
+
+5. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
   
-5. To run the Unit test, run:
+6. To run the Unit test, run:
 
   ```python3 -m unittest discover tests 2> montecarlo_tests_results.txt```
   
 This will overwrite the montecarlo_tests_results.txt file with a new output.
+
+Enjoy!
