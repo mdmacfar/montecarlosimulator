@@ -7,6 +7,6 @@ setup(
     install_requires=['pandas'],
     author="Michael Macfarlan",
     description="Monte Carlo Simulator package containing Die, Game, and Analyzer classes",
-    url="https://github.com/mdmacfar/montecarlosimulatormodule",
+    url="https://github.com/mdmacfar/montecarlosimulator",
     license="MIT"
 )
