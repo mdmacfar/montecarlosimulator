@@ -96,11 +96,9 @@ Instructions to install:
   
 2. Copy the repo to your environment, then run these bash commands from the same directory as your repo:
   
-  ```pip install -e .```, then:
-  
-  ```python3 -m mcs_pkg ```
+  ```pip install -e . && python3 -m mcs_pkg ```
 
-3. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
+3. You're ready to use the package. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
   
 4. To run the Unit test, run:
 
@@ -117,21 +115,11 @@ Instructions to install within a Docker environment:
 2. Open VSCode from Docker when prompted. Open a terminal (Terminal > New Terminal)
 3. In the terminal, run:
   
-  ```sudo apt-get update && sudo apt-get install -y python3-pip```
-  
-4. Then run:
+  ```sudo apt-get update && sudo apt-get install -y python3-pip && pip3 install pandas && pip3 install matplotlib && pip install -e . && python3 -m mcs_pkg ```
 
-```pip3 install pandas``` , then:
+4. You're ready to use the package. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
   
-  ```pip3 install matplotlib #(this is for the jupyter notebook graphs)```, then:
-  
-  ```pip install -e .```, then:
-  
-  ```python3 -m mcs_pkg ```
-
-5. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
-  
-6. To run the Unit test, run:
+5. To run the Unit test, run:
 
   ```python3 -m unittest discover tests 2> montecarlo_tests_results.txt```
   
