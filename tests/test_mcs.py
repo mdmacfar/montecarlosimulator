@@ -4,6 +4,7 @@ import random
 from typing import List
 from mcs_pkg import Die, Game, Analyzer
 
+
 class TestDie(unittest.TestCase):
     def setUp(self):
         self.die = Die([1,2,3,4,5,6])
