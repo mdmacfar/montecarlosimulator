@@ -151,15 +151,15 @@ class Analyzer:
         """
 
         self.game = game
-        self.faces_dtype = self._infer_faces_dtype()
+        self.faces_dtype = self.get_faces_dtype()
         self.face_count_results = None
         self.jackpot_results = None
         self.combo_results = None
         
 
-    def _infer_faces_dtype(self):
+    def get_faces_dtype(self):
         """
-        Infers the data type of the faces in the results.
+        Gets the data type of the faces in the results.
 
         """
         dtypes = set()

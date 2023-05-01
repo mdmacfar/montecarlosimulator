@@ -1,2 +1,1 @@
 mcs_pkg
-tests

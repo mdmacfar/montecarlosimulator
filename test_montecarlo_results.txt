@@ -1,5 +1,5 @@
 test_count_faces (__main__.TestAnalyzer) ... ok
-test_infer_faces_dtype (__main__.TestAnalyzer) ... ok
+test_get_faces_dtype (__main__.TestAnalyzer) ... ok
 test_init (__main__.TestAnalyzer) ... ok
 test_change_weight (__main__.TestDie) ... ok
 test_init (__main__.TestDie) ... ok
@@ -10,6 +10,6 @@ test_play (__main__.TestGame) ... ok
 test_show (__main__.TestGame) ... ok
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.702s
+Ran 10 tests in 0.704s
 
 OK

@@ -72,32 +72,32 @@ class TestAnalyzer(unittest.TestCase):
     def test_init(self):
         # Test if the analyzer is initialized correctly
         self.assertEqual(self.analyzer.game, self.game)
-        self.assertEqual(self.analyzer._infer_faces_dtype(), 'int')
+        self.assertEqual(self.analyzer.get_faces_dtype(), 'int')
         self.assertEqual(self.analyzer.face_count_results, None)
         self.assertEqual(self.analyzer.jackpot_results, None)
         self.assertEqual(self.analyzer.combo_results, None)
         
-    def test_infer_faces_dtype(self):
+    def test_get_faces_dtype(self):
         # Test when all die have integer faces 
         self.game = Game([Die([1, 2, 3]), Die([4, 5, 6])])
         self.analyzer = Analyzer(self.game)
-        self.assertEqual(self.analyzer._infer_faces_dtype(), 'int')
+        self.assertEqual(self.analyzer.get_faces_dtype(), 'int')
 
         # Test when all die have string faces
         self.game = Game([Die(['A', 'B', 'C']), Die(['D', 'E', 'F'])])
         self.analyzer = Analyzer(self.game)
-        self.assertEqual(self.analyzer._infer_faces_dtype(), 'str')
+        self.assertEqual(self.analyzer.get_faces_dtype(), 'str')
 
         # Test when all die have float faces
         self.game = Game([Die([1.1, 2.2, 3.3]), Die([4.4, 5.5, 6.6])])
         self.analyzer = Analyzer(self.game)
-        self.assertEqual(self.analyzer._infer_faces_dtype(), 'float')
+        self.assertEqual(self.analyzer.get_faces_dtype(), 'float')
 
         # Test when die have mixed face types
         self.game = Game([Die([1, 2, 3]), Die(['A', 'B', 'C'])])
         with self.assertRaises(TypeError):
             self.analyzer = Analyzer(self.game)
-            self.analyzer._infer_faces_dtype()
+            self.analyzer.get_faces_dtype()
 
         # Test when die have unsupported face types
         class TestObject:
@@ -106,7 +106,7 @@ class TestAnalyzer(unittest.TestCase):
         self.game = Game([Die([TestObject(), TestObject()]), Die([TestObject(), TestObject()])])
         with self.assertRaises(TypeError):
             self.analyzer = Analyzer(self.game)
-            self.analyzer._infer_faces_dtype()
+            self.analyzer.get_faces_dtype()
         
     def test_count_faces(self):
         # Test if the count_faces method populates the dataframe correctly
