@@ -10,6 +10,6 @@ test_play (__main__.TestGame) ... ok
 test_show (__main__.TestGame) ... ok
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.704s
+Ran 10 tests in 0.702s
 
 OK

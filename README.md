@@ -96,7 +96,7 @@ Instructions to install:
   
 2. Copy the repo to your environment, then run these bash commands from the same directory as your repo:
   
-  ```pip install -e . && python3 -m mcs_pkg ```
+  ```pip install -e . ```
 
 3. You're ready to use the package. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
   
@@ -115,7 +115,7 @@ Instructions to install within a Docker environment:
 2. Open VSCode from Docker when prompted. Open a terminal (Terminal > New Terminal)
 3. In the terminal, run:
   
-  ```sudo apt-get update && sudo apt-get install -y python3-pip && pip3 install pandas && pip3 install matplotlib && pip install -e . && python3 -m mcs_pkg ```
+  ```sudo apt-get update && sudo apt-get install -y python3-pip && pip3 install pandas && pip3 install matplotlib && pip install -e . ```
 
 4. You're ready to use the package. Experiment with different scenarios by opening __montecarlo_demo.ipynb__ and running the cells
   

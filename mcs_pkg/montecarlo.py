@@ -28,7 +28,7 @@ class Die:
         """
         self.faces = faces
         self.weights = [1.0] * len(faces)
-        self.dataframe = pd.DataFrame({'faces': self.faces, 'weight': self.weights})
+        self._dataframe = pd.DataFrame({'faces': self.faces, 'weight': self.weights})
 
     def change_weight(self, face, weight):
         """
@@ -46,7 +46,7 @@ class Die:
         except ValueError:
             raise ValueError("Weight must be a number.")
         self.weights[self.faces.index(face)] = weight
-        self.dataframe = pd.DataFrame({'faces': self.faces, 'weight': self.weights})
+        self._dataframe = pd.DataFrame({'faces': self.faces, 'weight': self.weights})
 
     def roll(self, times=1):
         """
@@ -66,7 +66,7 @@ class Die:
         Shows the die's current set of faces and weights.
 
         """
-        print(self.dataframe)
+        print(self._dataframe)
 
 class Game:
     """
@@ -74,7 +74,7 @@ class Game:
 
     Attributes:
     dice: A list of die objects
-    results: A datafame of the results of the rolls
+    _results: A datafame of the results of the rolls
 
     Methods:
     __init__(self, dice: List[Die]): Initializes a new Game object.
@@ -91,7 +91,7 @@ class Game:
 
         """
         self.dice = dice
-        self.results = pd.DataFrame()
+        self._results = pd.DataFrame()
 
     def play(self, times=int):
         """
@@ -101,12 +101,12 @@ class Game:
         times: Number of times to play the game.
 
         """
-        results = []
+        _results = []
         for i in range(times):
             roll = [die.roll()[0] for die in self.dice]
-            results.append(roll)
+            _results.append(roll)
         cols = [f'die_{i+1}' for i in range(len(self.dice))]
-        self.results = pd.DataFrame(results, columns=cols)
+        self._results = pd.DataFrame(_results, columns=cols)
 
     def show(self, wide: bool=True):
         """
@@ -116,15 +116,15 @@ class Game:
         wide: Whether to show the results in wide format (default) or narrow format.
 
         """
-        if self.results is None:
+        if self._results is None:
             print("No results to show.")
             return
         
         if wide:
-            print(self.results)
+            print(self._results)
 
         else:
-            narrow = pd.melt(self.results, var_name='die', value_name='result')
+            narrow = pd.melt(self._results, var_name='die', value_name='result')
             narrow['roll'] = narrow.index
             narrow = narrow[['roll', 'die', 'result']]
             print(narrow)
@@ -159,7 +159,7 @@ class Analyzer:
 
     def get_faces_dtype(self):
         """
-        Gets the data type of the faces in the results.
+        Gets the data type of the faces in the results
 
         """
         dtypes = set()
@@ -187,7 +187,7 @@ class Analyzer:
         """
         faces_count_dict = {}
         for face in self.game.dice[0].faces:
-            faces_count_dict[face] = self.game.results.apply(lambda row: (row == face).sum(), axis=1).sum()
+            faces_count_dict[face] = self.game._results.apply(lambda row: (row == face).sum(), axis=1).sum()
         self.face_count_results = pd.DataFrame.from_dict(faces_count_dict, orient='index', columns=['count'])
         self.face_count_results.index.name = 'face'
         return self.face_count_results

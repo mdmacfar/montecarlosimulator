@@ -46,14 +46,14 @@ class TestGame(unittest.TestCase):
     def test_init(self):
         # Test if the game is initialized correctly
         self.assertEqual(self.game.dice, [self.die1, self.die2])
-        self.assertEqual(self.game.results.shape, (0, 0))
+        self.assertEqual(self.game._results.shape, (0, 0))
         
     def test_play(self):
         # Test if the play method populates the dataframe correctly with valid faces
         self.game.play(1000)
-        self.assertEqual(self.game.results.shape, (1000, 2))
-        self.assertTrue(all([result in self.die1.faces for result in self.game.results['die_1']]))
-        self.assertTrue(all([result in self.die2.faces for result in self.game.results['die_2']]))
+        self.assertEqual(self.game._results.shape, (1000, 2))
+        self.assertTrue(all([result in self.die1.faces for result in self.game._results['die_1']]))
+        self.assertTrue(all([result in self.die2.faces for result in self.game._results['die_2']]))
         
     def test_show(self):
         # Test if the game shows correctly
