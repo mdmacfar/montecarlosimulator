@@ -112,3 +112,8 @@ class TestAnalyzer(unittest.TestCase):
         # Test if the count_faces method populates the dataframe correctly
         self.analyzer.count_faces()
         self.assertEqual(self.analyzer.face_count_results.shape, (6, 1))
+
+
+if __name__ == '__main__':
+
+    unittest.main(verbosity=3)
