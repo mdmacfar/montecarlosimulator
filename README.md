@@ -76,17 +76,17 @@ Attributes:
 Here is what you'll find in the repo:
 
 - montecarlosimulator/
-  - README.md (This file)
-  - License (The license)
-  - setup.py (Setup file for the package installation)
-  - montecarlo_tests_results.txt (Unit test output)
-  - scratch.py (A place to run manual mini tests)
-  - montecarlo_demo.ipynb (A jupyter notebook to run different scenarios)
+  - `README.md` (This file)
+  - `LICENSE` (The license)
+  - `setup.py` (Setup file for the package installation)
+  - `test_montecarlo_results.txt` (Unit test output)
+  - `scratch.py` (A place to run manual mini tests)
+  - `montecarlo_demo.ipynb` (A jupyter notebook to run different scenarios)
   - tests/
-    - montecarlo_tests.py (Unit test file)
+    - `test_montecarlo.py` (Unit test file)
   - mcs_pkg/
-    - __init__.py (Package initializer)
-    - montecarlo.py (The juicy bits of the package)
+    - `__init__.py` (Package initializer)
+    - `montecarlo.py` (The juicy bits of the package)
 
 ## General Installation Instructions
 
@@ -102,9 +102,9 @@ Instructions to install:
   
 4. To run the Unit test, run:
 
-  ```python3 -m unittest discover tests 2> montecarlo_tests_results.txt```
+  ```python3 tests/test_montecarlo.py 2> test_montecarlo_results.txt```
   
-This will overwrite the montecarlo_tests_results.txt file with a new output.
+This will overwrite the test_montecarlo_results.txt file with a new output.
 
 
 ## Installation Instructions For Docker Dev Environment
@@ -121,8 +121,8 @@ Instructions to install within a Docker environment:
   
 5. To run the Unit test, run:
 
-  ```python3 -m unittest discover tests 2> montecarlo_tests_results.txt```
+  ```python3 tests/test_montecarlo.py 2> test_montecarlo_results.txt```
   
-This will overwrite the montecarlo_tests_results.txt file with a new output.
+This will overwrite the test_montecarlo_results.txt file with a new output.
 
 Enjoy!
